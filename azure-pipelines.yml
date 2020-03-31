@@ -7,7 +7,10 @@ trigger:
 - master
 
 pool:
-  vmImage: 'u- task: prisma-cloud-compute-scan@1
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: prisma-cloud-compute-scan@1
   inputs:
     scanType: 'images'
     twistlockService: 'PC-Console-Scanner'
@@ -15,9 +18,7 @@ pool:
     onlyFixed: false
     gracePeriod: '0'
     complianceThreshold: 'high'
-    artifact: 'ubuntu-latest''
-
-steps:
+    artifact: 'ubuntu-latest'
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
 
